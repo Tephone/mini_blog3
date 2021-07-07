@@ -4,6 +4,7 @@
     = blog.content
   .p
     = l blog.created_at
-= link_to 'miniブログを作成する', new_blog_path
+%br
+= link_to 'miniブログを作成する', new_blog_path, class: 'btn btn-primary'
 
 = paginate @blogs
