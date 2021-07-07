@@ -7,4 +7,5 @@ class User < ApplicationRecord
   validates :name, presence: true,
                     length: {maximum: 20},
                     format:{with: /\A[a-zA-Z]+\z/}
+  has_many :blogs, dependent: :destroy
 end
