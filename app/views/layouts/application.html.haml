@@ -19,6 +19,8 @@
           = link_to 'ログアウト', destroy_user_session_path, method: :delete
       - else
         .nav-link
+          = link_to '全体タイムライン', blogs_path
+        .nav-link
           = link_to 'サインアップ', new_user_registration_path
         .nav-link
           = link_to 'ログイン', new_user_session_path
