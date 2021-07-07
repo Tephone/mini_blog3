@@ -1,0 +1,5 @@
+%h3 ユーザー一覧画面
+- @users.each do |user|
+  %p
+  = user.name
+= paginate @users

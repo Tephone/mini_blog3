@@ -2,6 +2,10 @@
 = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
   = render "devise/shared/error_messages", resource: resource
   .field
+    = f.label :name
+    %br/
+    = f.text_field :name, autofocus: true, autocomplete: "name"
+  .field
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true, autocomplete: "email"
@@ -21,15 +25,23 @@
     %br/
     = f.password_field :password_confirmation, autocomplete: "new-password"
   .field
-    = f.label :current_password
-    %i
-      (#{t('.we_need_your_current_password_to_confirm_your_changes')})
+    = f.label :profile
     %br/
-    = f.password_field :current_password, autocomplete: "current-password"
+    = f.text_field :profile, autofocus: true, autocomplete: "profile"
+  .field
+    = f.label :blog_url
+    %br/
+    = f.text_field :blog_url, autofocus: true, autocomplete: "blog_url"
+  -# .field  ※デバイスのdefautかつ今後使う可能性があるためコメントアウトで残します
+  -#   = f.label :current_password
+  -#   %i
+  -#     (#{t('.we_need_your_current_password_to_confirm_your_changes')})
+  -#   %br/
+  -#   = f.password_field :current_password, autocomplete: "current-password"
   .actions
     = f.submit t('.update')
-%h3= t('.cancel_my_account')
-%p
-  = t('.unhappy')
-  = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete
+-# %h3= t('.cancel_my_account')  ※同上
+-# %p
+-#   = t('.unhappy')
+-#   = button_to t('.cancel_my_account'), registration_path(resource_name), data: { confirm: t('.are_you_sure') }, method: :delete
 = link_to t('devise.shared.links.back'), :back
