@@ -1,0 +1,7 @@
+%h3 ユーザー一覧画面 
+- @users.each do |user|
+  - unless current_user == user
+    %p
+      = user.name
+      = render 'relationships/follow_form', user: user
+= paginate @users
